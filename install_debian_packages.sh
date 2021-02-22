@@ -19,6 +19,7 @@ sudo apt install \
      gnupg2 \
      graphviz \
      htop \
+     hub \
      i3 \
      imagemagick \
      isync \
