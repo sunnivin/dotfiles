@@ -35,15 +35,15 @@ Disable TLS 1.3; ELPA has higher standards. That'll be the default in Emacs
   (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 #+end_src
 
-* Use =sensible-defaults.el=
+* [#B] Use =sensible-defaults.el=
 
 Use [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el]] for some basic settings.
 
-#+begin_src emacs-lisp
-  (load-file "~/code/personal/sensible-defaults.el/sensible-defaults.el")
-  (sensible-defaults/use-all-settings)
-  (sensible-defaults/use-all-keybindings)
-  (sensible-defaults/backup-to-temp-directory)
+#begin_src emacs-lisp
+  ;;(load-file "~/code/personal/sensible-defaults.el/sensible-defaults.el")
+  ;; (sensible-defaults/use-all-settings)
+  ;; (sensible-defaults/use-all-keybindings)
+  ;; (sensible-defaults/backup-to-temp-directory)
 #+end_src
 
 * Set personal information
@@ -491,7 +491,7 @@ I use =magit= to handle version control. It's lovely, but I tweak a few things:
     ("C-x g" . magit-status)
 
     :config
-    (use-package evil-magit)
+    ;(use-package evil-magit)
     (use-package with-editor)
 
     (setq magit-push-always-verify nil
