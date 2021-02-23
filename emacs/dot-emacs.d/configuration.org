@@ -1,6 +1,6 @@
 #+TITLE: Emacs Configuration
-#+AUTHOR: Harry R. Schwartz
-#+EMAIL: hello@harryrschwartz.com
+#+AUTHOR: Sunniva Indrehus' personal change set of  Harry R. Schwartz's configuration, 
+#+EMAIL: sunniva.indrehus@gmail.com, hello@harryrschwartz.com
 #+OPTIONS: toc:nil num:nil
 
 * Configure =use-package=
@@ -51,12 +51,13 @@ Use [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el]] for so
 ** Who am I? Where am I?
 
 #+begin_src emacs-lisp
-  (setq user-full-name "Harry R. Schwartz"
-        user-mail-address "hello@harryrschwartz.com"
+  (setq user-full-name "Sunniva Indrehus"
+        user-mail-address "sunniva.indrehus@gmail.com"
         calendar-latitude 39.75
         calendar-longitude -105.21
         calendar-location-name "Golden, CO")
 #+end_src
+
 
 ** Access my netrc data
 
@@ -240,7 +241,8 @@ wallpaper, so just a hint of transparency looks lovely and isn't distracting or
 hard to read.
 
 #+begin_src emacs-lisp
-  (use-package modus-operandi-theme)
+  (use-package modus-vivendi-theme)
+;;  (use-package modus-operandi-theme)
 
   (defun transparency (value)
     "Sets the transparency of the frame window. 0=transparent/100=opaque."
@@ -401,6 +403,32 @@ programming.
     (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
 #+end_src
 
+
+** Automatic closure of parenthesis when programming 
+   Use smartparens for automatically closing parenthesis in
+   programming mode 
+   #+begin_src emacs-lisp
+	 ;; global
+     (use-package smartparens
+         :init
+  (bind-key "C-M-f" #'sp-forward-sexp smartparens-mode-map)
+  (bind-key "C-M-b" #'sp-backward-sexp smartparens-mode-map)
+  (bind-key "C-)" #'sp-forward-slurp-sexp smartparens-mode-map)
+  (bind-key "C-(" #'sp-backward-slurp-sexp smartparens-mode-map)
+  (bind-key "M-)" #'sp-forward-barf-sexp smartparens-mode-map)
+  (bind-key "M-(" #'sp-backward-barf-sexp smartparens-mode-map)
+  (bind-key "C-S-s" #'sp-splice-sexp)
+  (bind-key "C-M-<backspace>" #'backward-kill-sexp)
+  (bind-key "C-M-S-<SPC>" (lambda () (interactive) (mark-sexp -1)))
+
+  :config
+  (smartparens-global-mode t)
+
+  (sp-pair "'" nil :actions :rem)
+  (sp-pair "`" nil :actions :rem)
+  (setq sp-highlight-pair-overlay nil)) 
+   #+end_src
+  
 * Project management
 
 I use a few packages in virtually every programming or writing environment to
@@ -679,6 +707,12 @@ Install Less.
   (use-package less-css-mode)
 #+end_src
 
+** Fortran90 
+
+#+begin_src  emacs-lisp
+;(use-package fortran90)
+#+end_src
+
 ** Golang
 
 Install =go-mode= and related packages:
@@ -805,7 +839,8 @@ I like to use =paredit= in Lisp modes to balance parentheses (and more!).
 =rainbow-delimiters= is convenient for coloring matching parentheses.
 
 #+begin_src emacs-lisp
-  (use-package rainbow-delimiters)
+    (use-package rainbow-delimiters
+      :config (add-hook 'prog-mode-hook 'rainbow-delimiters-mode) )
 #+end_src
 
 All the lisps have some shared features, so we want to do the same things for
@@ -1177,6 +1212,8 @@ I add a bunch of hooks to =term-mode=:
   middle-click to yank the way we'd expect.
 - I bind =M-o= to quickly change windows. I'd like that in terminals, too.
 - I don't want to perform =yasnippet= expansion when tab-completing.
+
+
 
 #+begin_src emacs-lisp
   (defun hrs/term-paste (&optional string)
@@ -2425,7 +2462,6 @@ Hitting =C-x s= searches for synonyms for the word at point.
     :bind
     ("C-x s" . powerthesaurus-lookup-word-dwim))
 #+end_src
-
 ** Editing with Markdown
 
 Because I can't always use =org=.
@@ -2437,16 +2473,28 @@ Because I can't always use =org=.
 #+begin_src emacs-lisp
   (use-package markdown-mode
     :commands gfm-mode
-    :mode (("\\.md$" . gfm-mode))
-    :config
-    (custom-set-faces
-     '(markdown-pre-face ((t nil))))
+    :mode (("\\.md$" . gfm-mode)
+       ("\\.md\\'" . markdown-mode)
+       ("\\.markdown\\'" . markdown-mode))
+  :config
+  (custom-set-faces
+   '(markdown-pre-face ((t nil))))
 
   (setq markdown-command "pandoc --standalone --mathjax --from=markdown"
         markdown-fontify-code-blocks-natively t))
+
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode "markdown-mode"
+   "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 #+end_src
 
-** Cycle between spacing alternatives
+
+* Cyce between spacing alternatives
 
 Successive calls to =cycle-spacing= rotate between changing the whitespace
 around point to:

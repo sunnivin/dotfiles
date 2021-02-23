@@ -20,9 +20,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
+ '(custom-safe-themes
+   (quote
+    ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
  '(package-selected-packages
    (quote
-    (evil-magit flx-ido yard-mode yaml-mode which-key wgrep web-mode use-package undo-tree tuareg smex slim-mode scss-mode scala-mode sbt-mode rust-mode ruby-end rspec-mode rainbow-mode rainbow-delimiters racket-mode python-mode py-autopep8 projectile-rails powerthesaurus pinboard paredit orgalist org-plus-contrib org-msg org-bullets multi-term mu4e-alert modus-operandi-theme minions merlin ivy-xref instapaper helpful haskell-mode haml-mode graphviz-dot-mode go-errcheck gnuplot git-timemachine geiser forge flycheck-package evil-surround evil-org evil-collection engine-mode elpy elpher elfeed-org eglot dumb-jump dired-open dired-hide-dotfiles diff-hl deft counsel company-terraform company-restclient company-jedi company-go company-coq coffee-mode chruby avy auto-compile async ag))))
+    (smartparens evil-magit flx-ido yard-mode yaml-mode which-key wgrep web-mode use-package undo-tree tuareg smex slim-mode scss-mode scala-mode sbt-mode rust-mode ruby-end rspec-mode rainbow-mode rainbow-delimiters racket-mode python-mode py-autopep8 projectile-rails powerthesaurus pinboard paredit orgalist org-plus-contrib org-msg org-bullets multi-term mu4e-alert modus-operandi-theme minions merlin ivy-xref instapaper helpful haskell-mode haml-mode graphviz-dot-mode go-errcheck gnuplot git-timemachine geiser forge flycheck-package evil-surround evil-org evil-collection engine-mode elpy elpher elfeed-org eglot dumb-jump dired-open dired-hide-dotfiles diff-hl deft counsel company-terraform company-restclient company-jedi company-go company-coq coffee-mode chruby avy auto-compile async ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
