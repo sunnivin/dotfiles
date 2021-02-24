@@ -18,8 +18,9 @@ export TEXINPUTS=/home/hrs/.texmf:$TEXINPUTS
 export HOMEBREW_NO_ANALYTICS=1
 export SAM_CLI_TELEMETRY=0
 
+# Not needed for my personal configuration 
 # Enable tab-completion in pass.
-source /etc/bash_completion.d/password-store
+#source /etc/bash_completion.d/password-store
 
 # Enable tab-completion in various other contexts, including make targets and
 # man pages.

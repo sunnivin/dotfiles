@@ -37,7 +37,7 @@ sudo apt install \
      opam \
      openssl \
      pandoc \
-     pass \
+     #pass \ - I already have a password manager
      pass-extension-otp \
      pasystray \
      pavucontrol \
