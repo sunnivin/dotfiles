@@ -3,14 +3,14 @@ source $HOME/.bin/git-completion.sh
 export ALTERNATE_EDITOR=""
 export BROWSER="firefox"
 export EDITOR="$HOME/.bin/em"
-export EMAIL="hello@harryrschwartz.com"
+export EMAIL="sunniva.indrehus@gmail.com"
 export GOPATH="$HOME/code/go"
 export GPG_TTY=$(tty)
 export HISTFILESIZE=20000
 export LANG="en_US"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
-export NAME="Harry R. Schwartz"
+export NAME="Sunniva Indrehus"
 export PROMPT_DIRTRIM=3
 export TEXINPUTS=/home/hrs/.texmf:$TEXINPUTS
 
