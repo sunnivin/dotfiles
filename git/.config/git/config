@@ -24,7 +24,6 @@
   match = bold red
   linenumber = bold blue
 [commit]
-  gpgsign = true
   template = ~/.config/git/message
 [core]
   excludesfile = ~/.gitignore
@@ -48,6 +47,8 @@
 [sendemail]
   smtpserver = /usr/bin/msmtp
 [user]
-  name = Harry R. Schwartz
-  email = hello@harryrschwartz.com
+	name = sunnivin
+	email = sunniva.indrehus@gmail.com
   signingkey = 25AE721B
+[gpg]
+	program = gpg2
