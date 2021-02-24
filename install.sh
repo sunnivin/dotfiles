@@ -12,7 +12,9 @@ stow --dotfiles git
 stow --dotfiles lisp
 stow --dotfiles music
 stow --dotfiles ruby
-stow --dotfiles x-windows
+
+# The set-up for x-windows with .Xresources did not work on Ubuntu 20.04
+#stow --dotfiles x-windows
 
 # Link ~/.bash_profile -> ~/.bashrc
 rm -f ~/.bash_profile
