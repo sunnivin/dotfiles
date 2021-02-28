@@ -66,6 +66,7 @@ sudo apt install \
      texlive-base \
      texlive-fonts-recommended \
      texlive-latex-base \
+     texlive-latex-extra\
      tree \
      unclutter \
      unifont \
