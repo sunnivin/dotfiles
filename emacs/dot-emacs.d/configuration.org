@@ -253,7 +253,7 @@ hard to read.
     "Apply my chosen theme and make frames just slightly transparent."
     (interactive)
     (load-theme 'modus-operandi t)
-    (transparency 90))
+    (transparency 99))
 #+end_src
 
 If this code is being evaluated by =emacs --daemon=, ensure that each subsequent
