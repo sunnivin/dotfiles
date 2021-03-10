@@ -428,6 +428,12 @@ programming.
   (sp-pair "`" nil :actions :rem)
   (setq sp-highlight-pair-overlay nil)) 
    #+end_src
+
+   ** Ability to display emojis in commit messages
+   #+begin_src emacs-lisp
+      (use-package emojify
+	:hook (after-init . global-emojify-mode))
+   #+end_src
   
 * Project management
 
