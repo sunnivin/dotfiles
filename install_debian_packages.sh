@@ -29,6 +29,7 @@ sudo apt install \
      lightdm \
      maildir-utils \
      make \
+     meld \
      mlocate \
      mpv \
      msmtp \
