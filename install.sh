@@ -29,3 +29,7 @@ ln -s ~/.bashrc ~/.bash_profile
 
 # Finally, the Node packages. Dang, computers are complicated.
 ./install_node_packages.sh
+
+
+# Link latexmk
+ln -s ~/dotfiles/latexmk/latexmkrc_Linux ~/.latexmkrc
