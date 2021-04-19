@@ -23,6 +23,7 @@ sudo apt install \
      i3 \
      imagemagick \
      isync \
+     latexmk \
      libnotify-bin \
      libpq-dev \
      libsqlite3-dev \
