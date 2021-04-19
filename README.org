@@ -19,6 +19,7 @@ Clone this repository wherever you like (I use =~/.dotfiles=) and run the
   the dotfiles-folder (e.g., =~/.bashrc= →
   =~/.dotfiles/bash/.bashrc=), and
 - Install a handful of required Ruby gems.
+- Be sure to check that the content of .latexmkrc looks reasonable with your configurations.
 
 I'm currently working on an Ubuntu 20.04 so my set-up might not work
 for you. 
