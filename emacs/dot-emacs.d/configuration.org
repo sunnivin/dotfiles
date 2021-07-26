@@ -40,10 +40,10 @@ Disable TLS 1.3; ELPA has higher standards. That'll be the default in Emacs
 Use [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el]] for some basic settings.
 
 #begin_src emacs-lisp
-  ;;(load-file "~/code/personal/sensible-defaults.el/sensible-defaults.el")
-  ;; (sensible-defaults/use-all-settings)
-  ;; (sensible-defaults/use-all-keybindings)
-  ;; (sensible-defaults/backup-to-temp-directory)
+;;(load-file "~/code/personal/sensible-defaults.el/sensible-defaults.el")
+;; (sensible-defaults/use-all-settings)
+;; (sensible-defaults/use-all-keybindings)
+;; (sensible-defaults/backup-to-temp-directory)
 #+end_src
 
 * Set personal information
@@ -57,6 +57,9 @@ Use [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el]] for so
         calendar-longitude -105.21
         calendar-location-name "Golden, CO")
 #+end_src
+
+#+RESULTS:
+: Golden, CO
 
 
 ** Access my netrc data
@@ -84,6 +87,7 @@ to store not-too-terribly-sensitive secrets.
 #+begin_src emacs-lisp
   (add-to-list 'load-path "~/.emacs.d/resources/")
 #+end_src
+
 
 * =evil-mode=
 
@@ -242,7 +246,7 @@ hard to read.
 
 #+begin_src emacs-lisp
   (use-package modus-vivendi-theme)
-;;  (use-package modus-operandi-theme)
+  ;;  (use-package modus-operandi-theme)
 
   (defun transparency (value)
     "Sets the transparency of the frame window. 0=transparent/100=opaque."
@@ -277,11 +281,11 @@ By default there's a =;-)= after the major mode; that's an adorable default, but
 I'd rather skip it.
 
 #+begin_src emacs-lisp
-   (use-package minions
-     :config
-     (setq minions-mode-line-lighter ""
-           minions-mode-line-delimiters '("" . ""))
-     (minions-mode 1))
+  (use-package minions
+    :config
+    (setq minions-mode-line-lighter ""
+          minions-mode-line-delimiters '("" . ""))
+    (minions-mode 1))
 #+end_src
 
 ** Disable visual bell
@@ -405,35 +409,35 @@ programming.
 
 
 ** Automatic closure of parenthesis when programming 
-   Use smartparens for automatically closing parenthesis in
-   programming mode 
-   #+begin_src emacs-lisp
-	 ;; global
-     (use-package smartparens
-         :init
-  (bind-key "C-M-f" #'sp-forward-sexp smartparens-mode-map)
-  (bind-key "C-M-b" #'sp-backward-sexp smartparens-mode-map)
-  (bind-key "C-)" #'sp-forward-slurp-sexp smartparens-mode-map)
-  (bind-key "C-(" #'sp-backward-slurp-sexp smartparens-mode-map)
-  (bind-key "M-)" #'sp-forward-barf-sexp smartparens-mode-map)
-  (bind-key "M-(" #'sp-backward-barf-sexp smartparens-mode-map)
-  (bind-key "C-S-s" #'sp-splice-sexp)
-  (bind-key "C-M-<backspace>" #'backward-kill-sexp)
-  (bind-key "C-M-S-<SPC>" (lambda () (interactive) (mark-sexp -1)))
+Use smartparens for automatically closing parenthesis in
+programming mode 
+#+begin_src emacs-lisp
+  ;; global
+  (use-package smartparens
+    :init
+    (bind-key "C-M-f" #'sp-forward-sexp smartparens-mode-map)
+    (bind-key "C-M-b" #'sp-backward-sexp smartparens-mode-map)
+    (bind-key "C-)" #'sp-forward-slurp-sexp smartparens-mode-map)
+    (bind-key "C-(" #'sp-backward-slurp-sexp smartparens-mode-map)
+    (bind-key "M-)" #'sp-forward-barf-sexp smartparens-mode-map)
+    (bind-key "M-(" #'sp-backward-barf-sexp smartparens-mode-map)
+    (bind-key "C-S-s" #'sp-splice-sexp)
+    (bind-key "C-M-<backspace>" #'backward-kill-sexp)
+    (bind-key "C-M-S-<SPC>" (lambda () (interactive) (mark-sexp -1)))
 
-  :config
-  (smartparens-global-mode t)
+    :config
+    (smartparens-global-mode t)
 
-  (sp-pair "'" nil :actions :rem)
-  (sp-pair "`" nil :actions :rem)
-  (setq sp-highlight-pair-overlay nil)) 
-   #+end_src
+    (sp-pair "'" nil :actions :rem)
+    (sp-pair "`" nil :actions :rem)
+    (setq sp-highlight-pair-overlay nil)) 
+#+end_src
 
-   ** Ability to display emojis in commit messages
-   #+begin_src emacs-lisp
-      (use-package emojify
-	:hook (after-init . global-emojify-mode))
-   #+end_src
+** Ability to display emojis in commit messages
+#+begin_src emacs-lisp
+  (use-package emojify
+    :hook (after-init . global-emojify-mode))
+#+end_src
   
 * Project management
 
@@ -525,7 +529,7 @@ I use =magit= to handle version control. It's lovely, but I tweak a few things:
     ("C-x g" . magit-status)
 
     :config
-    ;(use-package evil-magit)
+                                          ;(use-package evil-magit)
     (use-package with-editor)
 
     (setq magit-push-always-verify nil
@@ -713,10 +717,22 @@ Install Less.
   (use-package less-css-mode)
 #+end_src
 
+** Docker 
+
+Enable docker-mode 
+
+#+begin_src emacs-lisp
+  (use-package dockerfile-mode)
+  (use-package docker-compose-mode)
+  (use-package docker-tramp)
+ #+end_src
+
+
+
 ** Fortran90 
 
 #+begin_src  emacs-lisp
-;(use-package fortran90)
+                                          ;(use-package fortran90)
 #+end_src
 
 ** Golang
@@ -845,8 +861,8 @@ I like to use =paredit= in Lisp modes to balance parentheses (and more!).
 =rainbow-delimiters= is convenient for coloring matching parentheses.
 
 #+begin_src emacs-lisp
-    (use-package rainbow-delimiters
-      :config (add-hook 'prog-mode-hook 'rainbow-delimiters-mode) )
+  (use-package rainbow-delimiters
+    :config (add-hook 'prog-mode-hook 'rainbow-delimiters-mode) )
 #+end_src
 
 All the lisps have some shared features, so we want to do the same things for
@@ -1236,6 +1252,18 @@ I add a bunch of hooks to =term-mode=:
               (define-key term-raw-map (kbd "M-o") 'other-window)
               (setq yas-dont-activate t)))
 #+end_src
+
+** Bookmark for shell session  
+
+Add bookmark to eshell session.
+
+#+begin_src emacs-lisp
+  (use-package eshell-bookmark
+  :after eshell
+  :config
+  (add-hook 'eshell-mode-hook #'eshell-bookmark-setup))
+#+end_src
+
 
 * Publishing and task management with Org-mode
 
@@ -1888,7 +1916,7 @@ manager instead of as a package on MELPA. This loads up =mu4e= from the usual
 location:
 
 #+begin_src emacs-lisp
-	(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
+  (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
   (require 'mu4e)
 #+end_src
 
@@ -2022,9 +2050,9 @@ highlighting and LaTeX snippets (as PNGs) and all that fancy nonsense.
           org-msg-signature "
 
   Cheers,
-  #+begin_signature
+  ,#+begin_signature
   Harry Schwartz
-  #+end_signature"))
+  ,#+end_signature"))
 #+end_src
 
 ** Reading an email
@@ -2081,7 +2109,7 @@ email to my "Archive" folder without applying that flag.
 
 #+begin_src emacs-lisp
   (setq mu4e-maildir-shortcuts
-      '(("/personal/archive" . ?A)))
+        '(("/personal/archive" . ?A)))
 
   (fset 'hrs/mu4e-move-to-archive "mA")
   (evil-define-key 'normal mu4e-headers-mode-map (kbd "d") 'hrs/mu4e-move-to-archive)
@@ -2097,7 +2125,7 @@ If a message is encrypted, my reply should always be encrypted, too.
     "Encrypt the current message if it's a reply to another encrypted message."
     (let ((msg mu4e-compose-parent-message))
       (when (and msg (member 'encrypted (mu4e-message-field msg :flags)))
-          (mml-secure-message-encrypt-pgpmime))))
+        (mml-secure-message-encrypt-pgpmime))))
 
   (add-hook 'mu4e-compose-mode-hook 'hrs/encrypt-responses)
 #+end_src
@@ -2138,18 +2166,18 @@ instead of the search that resulted in that view.
 
 Use an =org-contacts= file to manage my address book.
 
- #+begin_src emacs-lisp
-   (use-package org-contacts
-     :ensure nil
-     :after org
-     :custom (org-contacts-files '("~/documents/contacts.org")))
+#+begin_src emacs-lisp
+  (use-package org-contacts
+    :ensure nil
+    :after org
+    :custom (org-contacts-files '("~/documents/contacts.org")))
 
   (setq mu4e-org-contacts-file (car org-contacts-files))
   (add-to-list 'mu4e-headers-actions
-    '("org-contact-add" . mu4e-action-add-org-contact) t)
+               '("org-contact-add" . mu4e-action-add-org-contact) t)
   (add-to-list 'mu4e-view-actions
-    '("org-contact-add" . mu4e-action-add-org-contact) t)
- #+end_src
+               '("org-contact-add" . mu4e-action-add-org-contact) t)
+#+end_src
 
 * RSS with =elfeed=
 
@@ -2223,18 +2251,18 @@ I store some articles on [[https://pinboard.in/][Pinboard]]. The =pinboard.el= l
 I bind =a= (for "archive," let's say) to send the current entry to Pinboard.
 
 #+begin_src emacs-lisp
-    (use-package pinboard)
+  (use-package pinboard)
 
-    (defun hrs/elfeed-pinboard-current-entry ()
-      (interactive)
-      (let ((url (elfeed-entry-link (hrs/elfeed-current-entry)))
-            (title (elfeed-entry-title (hrs/elfeed-current-entry))))
-        (pinboard-auth)
-        (pinboard-not-too-soon :pinboard-save
-          (pinboard-save url title "" "" t nil))))
+  (defun hrs/elfeed-pinboard-current-entry ()
+    (interactive)
+    (let ((url (elfeed-entry-link (hrs/elfeed-current-entry)))
+          (title (elfeed-entry-title (hrs/elfeed-current-entry))))
+      (pinboard-auth)
+      (pinboard-not-too-soon :pinboard-save
+        (pinboard-save url title "" "" t nil))))
 
-    (define-key elfeed-show-mode-map "a" 'hrs/elfeed-pinboard-current-entry)
-    (define-key elfeed-search-mode-map "a" 'hrs/elfeed-pinboard-current-entry)
+  (define-key elfeed-show-mode-map "a" 'hrs/elfeed-pinboard-current-entry)
+  (define-key elfeed-search-mode-map "a" 'hrs/elfeed-pinboard-current-entry)
 #+end_src
 
 ** Add links to Instapaper
@@ -2480,23 +2508,23 @@ Because I can't always use =org=.
   (use-package markdown-mode
     :commands gfm-mode
     :mode (("\\.md$" . gfm-mode)
-       ("\\.md\\'" . markdown-mode)
-       ("\\.markdown\\'" . markdown-mode))
-  :config
-  (custom-set-faces
-   '(markdown-pre-face ((t nil))))
+           ("\\.md\\'" . markdown-mode)
+           ("\\.markdown\\'" . markdown-mode))
+    :config
+    (custom-set-faces
+     '(markdown-pre-face ((t nil))))
 
-  (setq markdown-command "pandoc --standalone --mathjax --from=markdown"
-        markdown-fontify-code-blocks-natively t))
+    (setq markdown-command "pandoc --standalone --mathjax --from=markdown"
+          markdown-fontify-code-blocks-natively t))
 
-(autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+  (autoload 'markdown-mode "markdown-mode"
+    "Major mode for editing Markdown files" t)
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-(autoload 'gfm-mode "markdown-mode"
-   "Major mode for editing GitHub Flavored Markdown files" t)
-(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+  (autoload 'gfm-mode "markdown-mode"
+    "Major mode for editing GitHub Flavored Markdown files" t)
+  (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 #+end_src
 
 
@@ -2812,11 +2840,11 @@ results and =C-c C-c= to stop, just like in =dired=.
 
   (eval-after-load 'grep
     '(define-key grep-mode-map
-      (kbd "C-x C-q") 'wgrep-change-to-wgrep-mode))
+       (kbd "C-x C-q") 'wgrep-change-to-wgrep-mode))
 
   (eval-after-load 'wgrep
     '(define-key grep-mode-map
-      (kbd "C-c C-c") 'wgrep-finish-edit))
+       (kbd "C-c C-c") 'wgrep-finish-edit))
 
   (setq wgrep-auto-save-buffer t)
 #+end_src
